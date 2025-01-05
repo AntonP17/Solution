@@ -1,0 +1,4 @@
+package gameTetris;
+
+public class Brick {
+}
