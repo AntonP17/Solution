@@ -1,0 +1,4 @@
+package Test.RMIex.ex2;
+
+public class Cat {
+}
