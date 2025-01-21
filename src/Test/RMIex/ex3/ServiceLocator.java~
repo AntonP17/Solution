@@ -1,0 +1,4 @@
+package Test.RMIex.ex3;
+
+public class ServiceLocator {
+}
