@@ -1,0 +1,108 @@
+// метод обработки запросов и вывод результата
+    public static void getEffective() {
+
+        Scanner console = new Scanner(System.in);
+        test question = new test();
+        CalculteMoney calculator = new CalculteMoney();
+
+        Result result1 = null;
+         Result result2 = null;
+        Result result3 = null;
+         Result result4 = null;
+        Result result5 = null;
+        Result result6 = null;
+        Result  result7 = null;
+
+
+            // 1 вопрос
+            question.question1();
+            int  thingsWithoutErrors = console.nextInt();
+            //result1 = calculator.positionWithoutErrror(thingsWithoutErrors);
+            result1 = calculator.positionWithoutErrror(thingsWithoutErrors);
+
+            // 2 вопрос
+            question.question2();
+            int thingsErrors = console.nextInt();
+            //result2 = calculator.positionError(thingsErrors);
+            result2 = calculator.positionError(thingsErrors);
+
+            // 3 вопрос
+            question.question3();
+            int thingsSkeleton = console.nextInt();
+            //result3 = calculator.skeleton(thingsSkeleton);
+            result3 = calculator.skeleton(thingsSkeleton);
+
+            // 4 вопрос
+            question.question4();
+            int thinsEticets = console.nextInt();
+            //result4 = calculator.changeEticet(thinsEticets);
+            result4 = calculator.changeEticet(thinsEticets);
+
+            // 5 вопрос
+            question.question5();
+            int thingsChangePackage = console.nextInt();
+            //result5 = calculator.changePackage(thingsChangePackage);
+            result5 = calculator.changePackage(thingsChangePackage);
+
+            // 6 вопрос
+            question.question6();
+            int thingsDirty = console.nextInt();
+            //result6 = calculator.dirty(thingsDirty);
+            result6 = calculator.dirty(thingsDirty);
+
+            // 7 вопрос
+            question.question7();
+            int thingsTreds = console.nextInt();
+            //result7 = calculator.treds(thingsTreds);
+            result7 = calculator.treds(thingsTreds);
+
+
+
+        //вывод 1
+        System.out.println("комплект = " + result1.num1 + " одиночные = " + result1.num2);
+        int sumResult1 = result1.num1 + result1.num2;
+        System.out.println("цена вещей без ошибок = " + sumResult1 );
+
+        //вывод 2
+        System.out.println("комплект = " + result2.num1 + " одиночные = " + result2.num2);
+        int sumResult2 = result2.num1 + result2.num2;
+        System.out.println("цена вещей с браком = " + sumResult2);
+
+        //вывод 3
+        System.out.println("комплект = " + result3.num1 + " одиночные = " + result3.num2);
+        int sumResult3 = result3.num1 + result3.num2;
+        System.out.println("цена вещей с проблемным каркасом = " + sumResult3);
+
+        //вывод 4
+        System.out.println("комплект = " + result4.num1 + " одиночные = " + result4.num2);
+        int sumResult4 = result4.num1 + result4.num2;
+        System.out.println("цена вещей с с проблемной этикеткой = " + sumResult4);
+
+        //вывод 5
+        System.out.println("комплект = " + result5.num1 + " одиночные = " + result5.num2);
+        int sumResult5 = result5.num1 + result5.num2;
+        System.out.println("цена вещей с проблемной упаковкой = " + sumResult5);
+
+        //вывод 6
+        System.out.println("комплект = " + result6.num1 + " одиночные = " + result6.num2);
+        int sumResult6 = result6.num1 + result6.num2;
+        System.out.println("цена вещей с пятнами,грязью = " + sumResult6);
+
+        // вывод 7
+        System.out.println("комплект = " + result7.num1 + " одиночные = " + result7.num2);
+        int sumResult7 = result7.num1 + result7.num2;
+        System.out.println("цена вещей с распущенными нитками = " + sumResult7);
+
+
+        printResult(sumResult1, sumResult2, sumResult3, sumResult4, sumResult5, sumResult6, sumResult7);
+
+
+
+    }
+
+    public static void printResult(int result1, int result2, int result3, int result4, int result5, int result6, int result7){
+        int sum = result1 + result2 + result3 + result4 + result5 + result6 + result7;
+        System.out.println("сумма всего : " + sum);
+
+    } */
+//}

@@ -2,8 +2,6 @@ package Solution;
 
 import java.util.Scanner;
 
-import java.util.Random;
-
 public class Solution {
 
     public static void main(String[] args) {
