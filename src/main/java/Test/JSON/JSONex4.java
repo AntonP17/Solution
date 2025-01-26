@@ -1,5 +1,9 @@
 package Test.JSON;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,20 +13,20 @@ public class JSONex4 {
     // ТУТ ТАК ЖЕ ОБЯЗАТЕЛЬНО ДОБАВИТЬ БИБЛИОТЕКУ jackson.databind
     // тогда сможем пользоваться всеми аннотациями
 
-//    @JsonTypeInfo(
-//            use = JsonTypeInfo.Id.NAME, // Использует имя типа для идентификации.
-//            include = JsonTypeInfo.As.PROPERTY, // Добавляет поле type в JSON
-//            property = "type" // Указывает имя поля, которое будет хранить тип.
-//    )
-//    @JsonSubTypes({ // Определяет список подтипов, которые могут быть сериализованы и десериализованы.
-//            @JsonSubTypes.Type(value = Dog.class, name = "dog"),
-//            @JsonSubTypes.Type(value = Cat.class, name = "cat")
-//    })
+    @JsonTypeInfo(
+            use = JsonTypeInfo.Id.NAME, // Использует имя типа для идентификации.
+            include = JsonTypeInfo.As.PROPERTY, // Добавляет поле type в JSON
+            property = "type" // Указывает имя поля, которое будет хранить тип.
+    )
+    @JsonSubTypes({ // Определяет список подтипов, которые могут быть сериализованы и десериализованы.
+            @JsonSubTypes.Type(value = Dog.class, name = "dog"),
+            @JsonSubTypes.Type(value = Cat.class, name = "cat")
+    })
 
     // @JsonTypeInfo(
-     //       use = JsonTypeInfo.Id.CLASS, // использует Полное имя класса (включая пакет).,
+    //        use = JsonTypeInfo.Id.CLASS, // использует Полное имя класса (включая пакет).,
     // есть еще вариант MINIMAL_CLASS	Минимальное имя класса (без пакета).
-      //      include = As.PROPERTY,
+      //      include = JsonTypeInfo.As.PROPERTY,
        //     property = "className")
     public static class Animal {
         public Animal(String name) {
@@ -32,7 +36,7 @@ public class JSONex4 {
         public String name;
     }
 
- //   @JsonTypeName("dog") // подтип
+   @JsonTypeName("dog") // подтип
     public static class Dog extends Animal {
 
         public double barkVolume;
@@ -42,7 +46,7 @@ public class JSONex4 {
         }
     }
 
- //   @JsonTypeName("cat")  // подтип
+  @JsonTypeName("cat")  // подтип
     public static class Cat extends Animal {
         boolean likesCream;
         public int lives;

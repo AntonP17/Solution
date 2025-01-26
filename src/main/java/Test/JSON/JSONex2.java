@@ -1,5 +1,10 @@
 package Test.JSON;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.io.StringWriter;
 
@@ -19,20 +24,20 @@ public class JSONex2 {
     // тогда сможем пользоваться всеми аннотациями
 
     public static void convertToJSON(StringWriter writer, Object object) throws IOException {
-       // ObjectMapper mapper = new ObjectMapper();
-       // mapper.writeValue(writer, object);
+        ObjectMapper mapper = new ObjectMapper();
+       mapper.writeValue(writer, object);
     }
 
-  //  @JsonAutoDetect
+   @JsonAutoDetect
     public static class Cat {
 
-     //   @JsonProperty("wildAnimal")
+        @JsonProperty("wildAnimal")
         public String name;
 
-      //  @JsonIgnore
+        @JsonIgnore
         public int age;
 
-     //   @JsonProperty("over")
+        @JsonProperty("over")
         public int weight;
 
         Cat() {

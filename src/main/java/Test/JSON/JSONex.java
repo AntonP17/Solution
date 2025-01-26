@@ -1,5 +1,8 @@
 package Test.JSON;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -30,22 +33,22 @@ public class JSONex {
     // ДЛЯ РАБОТЫ ОБЯЗАТЕЛЬНО НАДО ПОДКЛЮЧИТЬ БИБЛИОТЕКУ Jackson.databind
 
     public static void convertToJSON(StringWriter writer, Object object) throws IOException {
-     //   ObjectMapper mapper = new ObjectMapper();
-      //  mapper.writeValue(writer, object);
+       ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(writer, object);
     }
 
-  //  @JsonAutoDetect
+   @JsonAutoDetect
     public static class Pet {
         public   String name;
     }
 
-  //  @JsonAutoDetect
+    @JsonAutoDetect
     public static class Cat extends Pet {
         public int age;
         public int weight;
     }
 
- //   @JsonAutoDetect
+    @JsonAutoDetect
     public static class Dog extends Pet {
         public int age;
         public String owner;
