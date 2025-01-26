@@ -13,6 +13,7 @@ public class JSONex3 {
       //  return mapper.readValue(new FileReader(new File(fileName)), clazz); // тут используется уже не запись
         // а чтение из файла в котором содержится JSON
 
+        return null;
     }
 
     public static void main(String[] args) {
