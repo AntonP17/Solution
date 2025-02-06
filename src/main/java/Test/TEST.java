@@ -15,7 +15,7 @@ public class TEST {
     public static void main(String[] args) {
         // Пример логирования
         logger.trace("выводится все сообщения");
-        logger.info("Приложение запущено! прсотые сообщение");
+        logger.info("Приложение запущено! простые сообщение");
         logger.debug("Это сообщение уровня DEBUG.");
         logger.warn("Это сообщение уровня WARN.");
         logger.error("Это сообщение уровня ERROR.");

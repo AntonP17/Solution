@@ -1,0 +1,37 @@
+package Test.Generics;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
+public class GenericEx2 <T extends HashMap<?, ?>>{
+
+    //в типе класса указывваем что он принимает типы наследников HashMap с любыми ключами и значениями
+
+    private T map;
+
+    public GenericEx2(T map) {
+        this.map = map;
+       }
+
+
+       public T getMap() {
+        return map;
+        }
+
+    public static void main(String[] args) {
+
+     HashMap<String, Integer> hashMap = new HashMap<>();
+     hashMap.put("string", 4);
+     GenericEx2 solution = new GenericEx2(hashMap);
+     HashMap mapFromSolution = solution.getMap();
+     System.out.println(mapFromSolution.getClass());
+
+
+     LinkedHashMap<GenericEx2, GenericEx2> hashMap2 = new LinkedHashMap<>();
+     hashMap2.put(solution, solution);
+     GenericEx2 solution2 = new GenericEx2(hashMap2);
+     LinkedHashMap mapFromSolution2 = (LinkedHashMap) solution2.getMap();//need to cast :(
+     System.out.println(mapFromSolution2.getClass());
+ }
+
+}
