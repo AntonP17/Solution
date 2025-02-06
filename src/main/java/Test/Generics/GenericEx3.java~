@@ -42,14 +42,13 @@ public class GenericEx3 {
 //            return set.iterator().next();
         }
 
-        // параметизируем чтобы он работал с конкретными типом который во время выполнения будем знать , так что применять <?> не типобезопасно
-        // (так же нельзя добавлять в коллекцию потому что неизвестен тип , можно только null)
+        // параметизируем чтобы он работал с конкретными типом который во время выполнения будем знаь , так что применять <?> не типобезопасно
         public static <K, V> HashMap  <K, V> newHashMap(List<? extends K> keys, List<? extends V> values) {
         //напишите тут ваш код
 
             HashMap<K,V> map;
 
-            if ((keys.size() != values.size()) && ( keys == null || values == null)) {  // првоеряем размер ключей и значений , дополнительно на проверку на null
+            if (keys.size() != values.size()) {  // првоеряем размер ключей и значений
                 throw new IllegalArgumentException();
             }
 
