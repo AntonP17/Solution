@@ -1,26 +1,31 @@
 package Test.Generics;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class GenericEx3 {
 
     public static void main(String[] args) {
 }
 
-        public static ArrayList newArrayList(Object... elements) {
+        public static <T> List<T> newArrayList(Object... elements) {
          //напишите тут ваш код
-        return null;
+
+            List<T> list = new ArrayList<>();
+            for (Object element : elements) {
+                list.add((T) element);
+            }
+
+         // можно так   return Arrays.asList((T) elements);
+
+           return list;
         }
 
-        public static HashSet newHashSet(Object... elements) {
+        public static <T> T newHashSet(Object... elements) {
         //напишите тут ваш код
         return null;
         }
 
-        public static HashMap newHashMap(List keys, List values) {
+        public static <K, V> HashMap  <K, V> newHashMap(List<? extends K> keys, List<? extends V> values) {
         //напишите тут ваш код
             return null;
     }
