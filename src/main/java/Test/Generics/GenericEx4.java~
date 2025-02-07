@@ -12,12 +12,12 @@ import java.util.Map;
 public class GenericEx4 {
 
     public static void main(String[] args) {
-        List<ConvertableUser> users = new ArrayList<>(); // это будет список ключей
+        List<ConvertableUser> users = new ArrayList<>();
         users.add(new ConvertableUser(234, "First User"));
         users.add(new ConvertableUser(235, "Second User"));
         users.add(new ConvertableUser(236, "Third User"));
 
-        Map<Integer, ConvertableUser> newMap = ConvertableUtil.convert(users); // в метод передаем список ключей
+        Map<Integer, ConvertableUser> newMap = ConvertableUtil.convert(users);
         System.out.println(newMap);
         //{236=ConvertableUser{id=236, name='Third User'},
         // 235=ConvertableUser{id=235, name='Second User'},
@@ -49,8 +49,7 @@ interface Convertable<Key> {
      // (так же нельзя добавлять в коллекцию потому что неизвестен тип , можно только null)
      // параметризация - сначала указываем что работаем с параметрами K - ключами , V - значениями которые наслеуются от Convertable
      // который в свою очередь параметризируется Kлючом
-     // мапа тоже будет параметризирована
-    public static <K,V extends Convertable<K>> Map <K, V> convert(List<V> list) {
+    public static <K,V extends Convertable<K>> Map convert(List<V> list) {
 
         Map<K, V> result = new HashMap(); // обязаелная параметризация
 
