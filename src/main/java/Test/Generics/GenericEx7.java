@@ -33,12 +33,16 @@ class Event {
 
 
  class Generator<T> {
-    T newInstance() {
-        return new T();
+
+    Class<T> clazz;
+
+     public Generator(Class<T> clazz) {
+         this.clazz = clazz;
+     }
+
+     T newInstance() throws InstantiationException, IllegalAccessException {
+        return clazz.newInstance();
     }
-}
-
-
 }
 
 //	EASY Генератор объектов
@@ -49,10 +53,10 @@ class Event {
 //Подсказка: Для создания объекта потребуется использовать метод Class<T>.newInstance().
 //Требования:
 //        •	•
-//Класс Generator должен быть параметризован типом Т.
+//Класс Generator должен быть параметризован типом Т. +
 //•	•
-//Класс Generator должен иметь поле типа Class, которое параметризовано типом Т.
+//Класс Generator должен иметь поле типа Class, которое параметризовано типом Т. +
 //        •	•
-//Класс Generator должен иметь конструктор, который инициализирует поле типа Class.
+//Класс Generator должен иметь конструктор, который инициализирует поле типа Class. +
 //•	•
-//Метод newInstance в классе Generator должен создавать и возвращать объект типа Т.
+//Метод newInstance в классе Generator должен создавать и возвращать объект типа Т. +

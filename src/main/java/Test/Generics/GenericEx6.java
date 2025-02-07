@@ -26,40 +26,54 @@ public class GenericEx6 {
         catHouse.enter(keksik);
         catHouse.enter(bruno);
         System.out.println(catHouse.toString());
+
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////
+
+        House<Dog> dogHouseTEST = new House<>();
+        dogHouse.enter(bruno);
+        dogHouse.enter(larsik);
+        // dogHouse.enter(barsik); // Это вызовет ошибку компиляции, что правильно
+        System.out.println(dogHouse.toString());
+
+        House<Cat> catHouseTEST = new House<>();
+        catHouse.enter(barsik);
+        catHouse.enter(keksik);
+        // catHouse.enter(bruno); // Это вызовет ошибку компиляции, что правильно
+        System.out.println(catHouse.toString());
     }
 }
 
-class House {
+class House <T> {
 
-        private List residents = new ArrayList();
+        private List<T> residents = new ArrayList();
 
-        public void enter(Object resident) {
+        public void enter(T resident) {
             residents.add(resident);
-            checkConflicts();
+         //  checkConflicts();
         }
 
-        public void leave(Object resident) {
+        public void leave(T resident) {
             residents.remove(resident);
         }
 
-        private void checkConflicts() {
-            boolean conflict = false;
-            for (Object resident : residents) {
-                if (resident instanceof Dog) {
-                    conflict = true;
-                }
-            }
-
-            if (conflict) {
-                Iterator iterator = residents.iterator();
-                while (iterator.hasNext()) {
-                    Object resident = iterator.next();
-                    if (resident instanceof Cat) {
-                        iterator.remove();
-                    }
-                }
-            }
-        }
+//        private void checkConflicts() {
+//            boolean conflict = false;
+//            for (Object resident : residents) {
+//                if (resident instanceof Dog) {
+//                    conflict = true;
+//                }
+//            }
+//
+//            if (conflict) {
+//                Iterator iterator = residents.iterator();
+//                while (iterator.hasNext()) {
+//                    Object resident = iterator.next();
+//                    if (resident instanceof Cat) {
+//                        iterator.remove();
+//                    }
+//                }
+//            }
+//        }
 
         @Override
         public String toString() {
@@ -140,13 +154,13 @@ class House {
 //Метод main не принимает участие в тестировании.
 //        Требования:
 //        •	•
-//Класс House должен быть параметризован с типом T.
+//Класс House должен быть параметризован с типом T. +
 //        •	•
-//Поле residents в классе House должно быть параметризовано типом T.
+//Поле residents в классе House должно быть параметризовано типом T. +
 //        •	•
-//Метод enter в классе House должен принимать объект типа T.
+//Метод enter в классе House должен принимать объект типа T. +
 //        •	•
-//Метод leave в классе House должен принимать объект типа T.
+//Метод leave в классе House должен принимать объект типа T. +
 //        •	•
-//Метод checkConflicts в классе House больше не нужен и должен быть удален.
+//Метод checkConflicts в классе House больше не нужен и должен быть удален. +
 

@@ -10,12 +10,19 @@ import java.util.ListIterator;
 
 public class GenericEx5 {
 
-    public static <D, H extends D, S extends H> void add(List<D> destinationList, List<S> sourceList) {
-        ListIterator<D> destListIterator = destinationList.listIterator();
-        ListIterator<S> srcListIterator = sourceList.listIterator();
-        for (int i = 0; i < sourceList.size(); i++) {
-            destListIterator.add(srcListIterator.next());
-        }
+    public static <D, H extends D, S extends H> void add(List<? super S> destinationList, List<? extends S> sourceList) {
+
+        destinationList.addAll(sourceList);
+
+//     можно так но идет бессмысленное приведение типов , wildcards позволяет работать с любым обьектом, но опасно добавлять в коллекцию потмоу что может быть null
+//        public static <D, H extends D, S extends H> void add(List<? extends D> destinationList, List<? extends S> sourceList) {
+//            ListIterator<D> destListIterator = (ListIterator<D>) destinationList.listIterator();
+//            ListIterator<S> srcListIterator = (ListIterator<S>) sourceList.listIterator();
+//            for (int i = 0; i < sourceList.size(); i++) {
+//                destListIterator.add(srcListIterator.next());
+//            }
+//        }
+
     }
 
 
