@@ -1,5 +1,7 @@
 package Test.Generics;
 
+
+
 public class GenericEx1 <T extends ClassForGenerics & InterfaceForGenerics> { //тут множественное перечисление ,
     // 1 параметр идет всегда класс потом через амперсанду идут интерфейсы
     public static void main(String[] args) {
