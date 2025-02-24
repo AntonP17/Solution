@@ -4,6 +4,8 @@ ClassLoader - что это такое?
 */
 
 
+
+
 import java.util.Set;
 
 public class GenericEx10 {
