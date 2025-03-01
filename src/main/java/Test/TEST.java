@@ -4,22 +4,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 
 public class TEST {
-
-    // Создаём логгер на данный класс
-    private static final Logger logger = LoggerFactory.getLogger(TEST.class);
-
     public static void main(String[] args) {
-        // Пример логирования
-        logger.trace("выводится все сообщения");
-        logger.info("Приложение запущено! простые сообщение");
-        logger.debug("Это сообщение уровня DEBUG.");
-        logger.warn("Это сообщение уровня WARN.");
-        logger.error("Это сообщение уровня ERROR.");
+        List<Number> numbers = Arrays.asList(1, 2, 3);
+        addDataToList(numbers, getData());
+        System.out.println(numbers);
+    }
 
+    public static Number[] getData() {
+        return new Number[]{};
+    }
 
+    public static void addDataToList(List<Number> list, Number... data) {
+        for (Number number : data) {
+            list.add(number);
+        }
     }
 }
