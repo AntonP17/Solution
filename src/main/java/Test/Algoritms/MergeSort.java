@@ -16,7 +16,7 @@ public class MergeSort {
             mergeSort(arr, left, mid); // левая часть
             mergeSort(arr, mid + 1, right); // правая часть
             // делим до тех пор пока не останется несколько массивов только с 1 элементом
-            merge(arr, left, mid, right); // слияние обеих
+            merge(arr, left, mid, right); // слияние обеих pp
         }
     }
 
