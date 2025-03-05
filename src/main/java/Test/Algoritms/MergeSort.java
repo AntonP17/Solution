@@ -55,7 +55,7 @@ public class MergeSort {
       }
 
       for (int ll = i; ll < l; ll++) {
-          arr[idx++] = left[ll];;
+          arr[idx++] = left[ll];
       }
       for (int rr = j; rr < r; rr++) {
           arr[idx++] = right[rr];
