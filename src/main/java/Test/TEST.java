@@ -1,28 +1,74 @@
 package Test;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-
+import java.lang.Runnable;
+import java.util.*;
+import java.util.concurrent.Exchanger;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 
 public class TEST {
+
+
+
     public static void main(String[] args) {
-        List<Number> numbers = Arrays.asList(1, 2, 3);
-        addDataToList(numbers, getData());
-        System.out.println(numbers);
+
+        Exchanger<String> ex = new Exchanger<>();
+
+        Mike mike = new Mike(ex);
+        Anket anket = new Anket(ex);
+
     }
 
-    public static Number[] getData() {
-        return new Number[]{};
-    }
+    static class Mike extends Thread{
 
-    public static void addDataToList(List<Number> list, Number... data) {
-        for (Number number : data) {
-            list.add(number);
+        private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+       private Exchanger<String> exchanger;
+
+        public Mike(Exchanger<String> exchanger) {
+
+            this.exchanger = exchanger;
+            start();
+        }
+
+        @Override
+        public void run() {
+            try {
+                exchanger.exchange("Hi my name is Mike");
+                sleep(1000);
+                exchanger.exchange("I am 27 years old");
+
+            } catch (InterruptedException e) {
+                LOGGER.error("Thread {} was interrupted", Thread.currentThread().getName());
+            }
         }
     }
+
+    static class Anket extends Thread{
+
+        private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+        private Exchanger<String> exchanger;
+
+        public Anket(Exchanger<String> exchanger) {
+            this.exchanger = exchanger;
+            start();
+        }
+
+        @Override
+        public void run() {
+            try {
+               LOGGER.info(exchanger.exchange(null));
+                LOGGER.info(exchanger.exchange(null));
+            }catch (InterruptedException e) {
+                LOGGER.error("Thread {} was interrupted", Thread.currentThread().getName());
+            }
+        }
+    }
+
 }
+
+

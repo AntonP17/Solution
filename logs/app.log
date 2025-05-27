@@ -18,3 +18,11 @@
 2025-02-01 20:54:20 DEBUG Test.TEST - Это сообщение уровня DEBUG.
 2025-02-01 20:54:20 WARN  Test.TEST - Это сообщение уровня WARN.
 2025-02-01 20:54:20 ERROR Test.TEST - Это сообщение уровня ERROR.
+2025-05-27 21:33:33 INFO  Test.TEST$Anket - Hi my name is Mike
+2025-05-27 21:33:33 INFO  Test.TEST$Anket - I am 27 years old
+2025-05-27 21:33:58 INFO  Test.TEST$Anket - Hi my name is Mike
+2025-05-27 21:33:58 INFO  Test.TEST$Anket - I am 27 years old
+2025-05-27 21:34:12 INFO  Test.TEST$Anket - Hi my name is Mike
+2025-05-27 21:34:13 INFO  Test.TEST$Anket - I am 27 years old
+2025-05-27 21:34:25 INFO  Test.TEST$Anket - Hi my name is Mike
+2025-05-27 21:34:26 INFO  Test.TEST$Anket - I am 27 years old
